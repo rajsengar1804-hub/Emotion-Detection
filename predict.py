@@ -1,7 +1,9 @@
 import json
+import os
 import numpy as np
 from PIL import Image
 import cv2
+from huggingface_hub import hf_hub_download
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.resnet50 import preprocess_input
 
@@ -10,6 +12,23 @@ LABEL_MAP_PATH = "label_mapping.json"
 IMG_SIZE = 224
 test_image_path = "test_face.png"
 
+# -------------------------------
+# Download model from Hugging Face
+# -------------------------------
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Hugging Face...")
+
+    hf_hub_download(
+        repo_id="rajsengar9340/emotion_detection",
+        filename="emotion_final_model.keras",
+        local_dir="."
+    )
+
+    print("Model downloaded successfully!")
+
+# -------------------------------
+# Load model
+# -------------------------------
 model = load_model(MODEL_PATH)
 
 with open(LABEL_MAP_PATH, "r") as f:
@@ -36,7 +55,6 @@ def predict_emotion_from_array(face_img_gray):
 
 
 def predict_all_probabilities(face_img_gray):
-    """Returns a dict of every emotion -> probability, sorted highest first."""
     processed = preprocess_face_array(face_img_gray)
     predictions = model(processed, training=False).numpy()[0]
     probs = {label_mapping[i]: float(predictions[i]) for i in range(len(predictions))}

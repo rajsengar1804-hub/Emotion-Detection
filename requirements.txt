@@ -1,5 +1,8 @@
-# tensorflow
-opencv-python 
+streamlit
+streamlit-webrtc
+tensorflow
+opencv-python-headless
 numpy
-pillow
-keras
+Pillow
+huggingface_hub
+av
