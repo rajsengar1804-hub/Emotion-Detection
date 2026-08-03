@@ -1,0 +1,33 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# --- Virtual environments ---
+# If "emotion" is your venv/conda folder, keep this. Delete this line if it's
+# actually a package/source folder you want tracked.
+emotion/
+.venv/
+venv/
+env/
+
+# --- Editor / OS ---
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- Model weights ---
+Uncomment if emotion_final_model.keras is over ~100MB (GitHub's push limit).
+Keep it tracked (comment this out) if it's small enough to commit directly.
+*.keras
+*.h5
+
+# --- Local test/output artifacts ---
+face_detected_output.png
+test_face.png
+
