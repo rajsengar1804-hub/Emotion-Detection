@@ -6,3 +6,6 @@ opencv-python-headless==4.11.0.86
 numpy
 pillow
 huggingface_hub
+scikit-learn
+matplotlib
+searborn

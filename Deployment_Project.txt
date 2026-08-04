@@ -1,0 +1,2 @@
+Project deployment link - https://emotion-detection-bu5jwif3rhwhn6z53w7ylu.streamlit.app/
+Github Link -https://github.com/rajsengar1804-hub/Emotion-Detection
