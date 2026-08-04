@@ -1,8 +1,8 @@
 streamlit
 streamlit-webrtc
 tensorflow==2.21.0
-opencv-python-headless
+keras
+opencv-python-headless==4.11.0.86
 numpy
-Pillow
+pillow
 huggingface_hub
-av
