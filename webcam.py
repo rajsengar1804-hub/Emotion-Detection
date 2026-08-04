@@ -25,16 +25,7 @@ while True:
     key = cv2.waitKey(1) & 0xFF
 
     for (x, y, w, h) in faces:
-        pad_w = int(0.1 * w)
-        pad_h = int(0.1 * h)
-        y1 = max(0, y - pad_h)
-        y2 = min(gray.shape[0], y + h + pad_h)
-        x1 = max(0, x - pad_w)
-        x2 = min(gray.shape[1], x + w + pad_w)
-
-        face_crop = gray[y1:y2, x1:x2]
-        face_crop = cv2.equalizeHist(face_crop)
-
+        face_crop = gray[y:y + h, x:x + w]
         probs = predict_all_probabilities(face_crop)
         top_emotion, top_conf = next(iter(probs.items()))
 

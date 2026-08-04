@@ -37,7 +37,17 @@ with open(LABEL_MAP_PATH, "r") as f:
 
 
 def preprocess_face_array(face_img_gray):
-    img = cv2.resize(face_img_gray, (IMG_SIZE, IMG_SIZE))
+    h, w = face_img_gray.shape
+    size = max(h, w)
+    # Pad to square using edge pixels, centered
+    pad_h = (size - h) // 2
+    pad_w = (size - w) // 2
+    square_img = cv2.copyMakeBorder(
+        face_img_gray, pad_h, size - h - pad_h, pad_w, size - w - pad_w,
+        borderType=cv2.BORDER_REPLICATE
+    )
+    img_small = cv2.resize(square_img, (48, 48))
+    img = cv2.resize(img_small, (IMG_SIZE, IMG_SIZE))
     img_array = img.astype("float32")
     img_array = np.stack([img_array] * 3, axis=-1)
     img_array = np.expand_dims(img_array, axis=0)
