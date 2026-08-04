@@ -92,4 +92,4 @@ def predict_emotion(image_path):
 
 if __name__ == "__main__":
     emotion, confidence = predict_emotion(test_image_path)
-    print(f"Predicted emotion: {emotion} ({confidence:.2%} confidence)")
+    print(f"Predicted emotion: {emotion} ({confidence:.2%} confidence)")tus
