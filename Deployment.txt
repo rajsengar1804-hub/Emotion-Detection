@@ -1,2 +1,2 @@
 GITHUB LINK - https://github.com/rajsengar1804-hub/Emotion-Detection.git
-PROJECT DEPLOYMENT LINK-
+PROJECT DEPLOYMENT LINK-https://emotion-detection-chlkcxu6r72guelrfscvvs.streamlit.app/
